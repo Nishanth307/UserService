@@ -20,6 +20,6 @@ public class Session extends BaseModel {
     private Date expiringAt;
     @ManyToOne
     private User user;
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private SessionStatus sessionStatus;
 }

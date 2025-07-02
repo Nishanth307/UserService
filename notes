@@ -1,1 +1,12 @@
 jwt jackson - json to object (serialize and deserialize)
+
+// In general Jpa is not used for entity table creation in production.
+// Flyway scripts - db migration scripts and are used to generate schema.It is version controlled.
+    - maintain same repository
+db scripts: these are the commands in sql to generate schema.
+v1_init.sql -> when spring starts it executes v1 script / once script is executed it can not be changed
+v2_init.sql -> executes the latest script.
+    - granular control
+    - first raise PR for flyway script
+    - Raise PR for script changes
+
