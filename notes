@@ -10,3 +10,25 @@ v2_init.sql -> executes the latest script.
     - first raise PR for flyway script
     - Raise PR for script changes
 
+ddl-none(does nothing),validate(verifies db ,if no db throw an error)
+
+Sessions  (3 types ):
+    1) Session Cookie : Temporary cookies stored for session ,user tracking,analytics
+    2) Persistent Cookie: Can be stored for 20 to 30 days , it has data like os,device name,location - used for weather,login, or to know user details
+    3) Third party Cookies: Companies like FB,Google store cookies for personalized ads by cross-site tracking.
+Backend will send the token key to user, the frontend will save it in the cookie, while sending a request frontend will attach the token to the cookie.
+
+CORS (Cross-Origin Resource Sharing)
+    - by default disable all cors (disable or block any call that goes to another domain/ip apart from my domain/ip)
+    - Linkedin asks users to allow going to another website
+CSRF (Cross-Site Request Forgery)
+    -
+CSS (Cross Site Scripting):Injecting a piece of code and tracking users, steals info with some malicious code.
+
+
+
+why this Oauth2 has to implement UserDetails
+In OAuth2 with Spring Security, you need to use `UserDetails` because it’s how Spring Security understands
+who a user is. OAuth2 handles authorization (like granting access), but Spring Security needs a way to manage user details
+like username, password, and roles for authentication. `UserDetails` acts like a standard format to pass this user info to Spring
+Security, so it can check if the user is valid and what they’re allowed to do.

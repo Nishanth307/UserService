@@ -5,10 +5,7 @@ import com.nishanth.UserService.models.SessionStatus;
 import com.nishanth.UserService.services.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -34,9 +31,10 @@ public class AuthController {
         return authService.logout(request.getToken(),request.getUserId());
     }
 
-    @PostMapping("/validate")
-    public ResponseEntity<SessionStatus> validateToken(ValidateTokenRequestDto request) {
-        SessionStatus sessionStatus = authService.validate(request.getToken(), request.getUserId());
+//    public ResponseEntity<SessionStatus> validateToken(ValidateTokenRequestDto request) {
+    @PostMapping("/validate/{userId}")
+    public ResponseEntity<SessionStatus> validateToken(@PathVariable String userId,@RequestHeader String token){
+        SessionStatus sessionStatus = authService.validate(token, Long.valueOf(userId));
         return new ResponseEntity<>(sessionStatus, HttpStatus.OK);
     }
 
